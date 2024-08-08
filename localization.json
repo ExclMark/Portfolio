@@ -1,0 +1,22 @@
+{
+    "en": {
+        "lang": "en",
+        "nav": "\n*use arrows to navigate, enter to select*\n\n",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact",
+        "language": "Language",
+        "exit": "*press enter to exit*",
+        "back": "Back"
+    },
+    "uk": {
+        "lang": "uk",
+        "nav": "\n*використовуйте стрілки для навігації, enter для вибору*\n\n",
+        "about": "Про мене",
+        "projects": "Проєкти",
+        "contact": "Контакти",
+        "language": "Мова",
+        "exit": "*натисніть enter для виходу*",
+        "back": "Назад"
+    }
+}
