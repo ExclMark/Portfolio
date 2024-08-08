@@ -18,7 +18,11 @@ async function setLocalization(language) {
 document.addEventListener("DOMContentLoaded", async function() {
     const textElement = document.getElementById('animated-text');
 
-    let localLang = localStorage.getItem('lang') || 'en';
+    let userLang = navigator.language || navigator.userLanguage;
+    userLang = userLang.split('-')[0]
+
+    let defLang = ['ru', 'ua'].includes(userLang) ? 'ua' : 'en';
+    let localLang = localStorage.getItem('lang') || defLang;
 
     await setLocalization(localLang);
 
