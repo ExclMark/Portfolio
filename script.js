@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     let select = false;
     let logo = true;
     let skip = false;
+    let skip_boot = false;
     let booted = false;
     let langSelecton = false;
     let contactSelection = false;
@@ -98,9 +99,14 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             textElement.innerHTML += currentBoot + '\n';
             currentBootIndex++;
-            setTimeout(typeBoot, bootSpeed + Math.random() * variation);
             textElement.scrollTop = textElement.scrollHeight
-
+            if (skip_boot) {
+                textElement.innerHTML = '';
+                booted = true;
+                menu(true);
+            } else {
+                setTimeout(typeBoot, bootSpeed + Math.random() * variation);
+            }
         } else {
             setTimeout(clearText, bootPause);
         }
@@ -250,15 +256,17 @@ document.addEventListener("DOMContentLoaded", async function() {
         text = "./contact\n";
         text += localization.nav;
         text += parameterSelected == 0 ? "> GitHub <\n" : "GitHub\n";
-        text += parameterSelected == 1 ? "> Discord <\n\n" : "Discord\n\n";
-        text += parameterSelected == 2 ? "> " + localization.back + " <" : localization.back;
+        text += parameterSelected == 1 ? "> Discord <\n\n" : "Discord\n";
+        text += parameterSelected == 2 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
+        text += parameterSelected == 3 ? "> " + localization.back + " <" : localization.back;
 
         if (init) {
             text = "<span class='pwd'>./contact</span>\n";
             text += localization.nav;
             text += parameterSelected == 0 ? "<span class='select'>> GitHub <</span>\n" : "GitHub\n";
-            text += parameterSelected == 1 ? "<span class='select'>> Discord <</span>\n\n" : "Discord\n\n";
-            text += parameterSelected == 2 ? "<span class='select'>> " + localization.back + " <" : localization.back;
+            text += parameterSelected == 1 ? "<span class='select'>> Discord <</span>\n" : "Discord\n";
+            text += parameterSelected == 2 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";
+            text += parameterSelected == 3 ? "<span class='select'>> " + localization.back + " <" : localization.back;
             textElement.innerHTML = text;
             loaded = true;
             return;
@@ -269,8 +277,10 @@ document.addEventListener("DOMContentLoaded", async function() {
             index = localization.lang == "en" ? 54 : 69;
         } else if (parameterSelected == 1) {
             index = 63;
-        } else {
+        } else if (parameterSelected == 2) {
             index = 72;
+        } else {
+            index = 81;
         }
 
         if (currentMenuIndex === index) {
@@ -375,7 +385,14 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         const currentCommand = commands[currentCommandIndex];
         let commandSpan;
-        
+
+        if (skip_boot) {
+            textElement.innerHTML = '';
+            booted = true;
+            menu(true);
+            return;
+        }
+    
         if (currentCharIndex === 0) {
             commandSpan = document.createElement('span');
             commandSpan.className = 'command';
@@ -438,6 +455,8 @@ document.addEventListener("DOMContentLoaded", async function() {
         if (!loaded && !skip) {
             if (booted) {
                 skip = true;
+            } else {
+                skip_boot = true;
             }
             return;
         } else if (!loaded) {
@@ -479,7 +498,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     textElement.appendChild(span);
                     language(span, true);
                 } else if (inPage && contactSelection) {
-                    parameterSelected = Math.min(2, parameterSelected + 1);
+                    parameterSelected = Math.min(3, parameterSelected + 1);
                     const span = document.createElement('span');
                     span.className = 'pwd';
                     textElement.appendChild(span);
@@ -498,13 +517,25 @@ document.addEventListener("DOMContentLoaded", async function() {
                         currentMenuIndex = 0;
                         menu();
                     } else if (contactSelection) {
-                        if (parameterSelected === 2) {
-                            contactSelection = false;
-                            textElement.textContent = '';
-                            inPage = false;
-                            loaded = false;
-                            currentMenuIndex = 0;
-                            menu();
+                        switch (parameterSelected) {
+                            case 0:
+                                window.open('https://github.com/ExclMark', '_blank');
+                                break;
+                            case 1:
+                                window.open('https://discordapp.com/users/665234248482947083', '_blank');
+                                break;
+                            case 2:
+                                window.open('mailto:info@3xcl.dev', '_blank');
+                                break;
+                            case 3:
+                                contactSelection = false;
+                                textElement.textContent = '';
+                                inPage = false;
+                                loaded = false;
+                                parameterSelected = 2;
+                                currentMenuIndex = 0;
+                                menu();
+                                break
                         }
                     } else {
                         textElement.textContent = '';
