@@ -592,5 +592,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     if (isMobileDevice()) {
         document.getElementById('mobile-message').style.display = 'block';
         document.getElementById('main-content').style.display = 'none';
+        document.getElementById('error-message').innerHTML = localization.mobile;
     }
 });
