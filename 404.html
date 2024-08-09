@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="src/3xcl.png">
+    <title>404</title>
+</head>
+<body>
+    <div id="main-content" class="terminal">
+        <div class="bar">
+            <div class="buttons">
+                <div class="close"></div>
+                <div class="minimize"></div>
+                <div class="maximize"></div>
+            </div>
+            <div class="title">excl_mark</div>
+        </div>
+        <pre id="animated-text"></pre>
+        </pre>
+    </div>
+    <script>
+        let terminal = document.getElementById('animated-text');
+
+        let text1 = 'Error: Page not found.\n';
+        let text2 = 'Code: 404\n';
+        let text3 = 'Message: The page you’re looking for doesn’t exist.\n\n';
+        let text4 = '*click enter to go back to the main page.*';
+
+        terminal.innerHTML = '<span class="fail">./error</span>\n\n';
+
+        function printText(text, element, delay = 25) {
+            return new Promise((resolve) => {
+                let i = 0;
+                function printChar() {
+                    if (i < text.length) {
+                        element.innerHTML += text[i];
+                        i++;
+                        setTimeout(printChar, delay);
+                    } else {
+                        resolve();
+                    }
+                }
+                printChar();
+            });
+        }
+
+        async function printSequentially() {
+            prefix = document.createElement('span');
+            prefix.className = 'prefix';
+            terminal.appendChild(prefix);
+
+            await printText(text1.slice(0, 6), prefix);
+            await printText(text1.slice(6), terminal);
+
+            prefix = document.createElement('span');
+            prefix.className = 'prefix';
+            terminal.appendChild(prefix);
+
+            await printText(text2.slice(0,5), prefix);
+            await printText(text2.slice(5), terminal);
+
+            prefix = document.createElement('span');
+            prefix.className = 'prefix';
+            terminal.appendChild(prefix);
+
+            await printText(text3.slice(0, 8), prefix);
+            await printText(text3.slice(8), terminal);
+
+            await printText(text4, terminal);
+        }
+
+        printSequentially();
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>
