@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     function about(span) {
         let text = "./about\n\n";
         text += "[REDACTED]\n\n";
-        text += mobile ? localization.exit_mob : localization.exit;
+        text += mobile ? localization.mob_exit : localization.exit;
 
         if (currentMenuIndex < text.length) {
             loaded = false;
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     function projects(span) {
         let text = "./projects\n\n";
         text += "[REDACTED]\n\n";
-        text += mobile ? localization.exit_mob : localization.exit;
+        text += mobile ? localization.mob_exit : localization.exit;
 
         if (currentMenuIndex < text.length) {
             loaded = false;
