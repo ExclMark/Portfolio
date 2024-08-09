@@ -77,7 +77,7 @@
         let localLang = localStorage.getItem('lang') || defLang;
         
         document.addEventListener("DOMContentLoaded", async function() {
-            await setLocalization('uk');
+            await setLocalization(localLang);
 
             let text1 = localization.error404;
             let text2 = localization.code404
