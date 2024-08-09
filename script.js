@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     function menu(init = true) {
+        textElement.style.fontSize = '1.2rem';
         let selectSpan;
         if (init == false || skip) {
             let text = "<span class='logo'>";
@@ -604,6 +605,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const hammer = new Hammer(swipeArea);
 
         mobile = true;
+        textElement.style.fontSize = '0.8rem';
 
         function simulateKeyAction(key) {
             const event = new KeyboardEvent('keydown', {
