@@ -9,7 +9,13 @@
         "contact": "Contact",
         "language": "Language",
         "exit": "*press enter to exit*",
-        "back": "Back"
+        "mob_exit": "*tap to exit*",
+        "back": "Back",
+        "error404": "Error: Page not found.\n",
+        "code404": "Code: 404\n",
+        "message404": "Message: The page you are looking for does not exist.\n\n",
+        "back404": "*press enter to go back*",
+        "back_mob404": "*tap to go back*"
     },
     "uk": {
         "lang": "uk",
@@ -21,6 +27,12 @@
         "contact": "Контакти",
         "language": "Мова",
         "exit": "*натисніть enter для виходу*",
-        "back": "Назад"
+        "mob_exit": "*натисніть для виходу*",
+        "back": "Назад",
+        "error404": "Помилка: Сторінку не найдено.\n",
+        "code404": "Код: 404\n",
+        "message404": "Повідомлення: Сторінка, яку ви шукаєте, не існує.\n\n",
+        "back404": "*натисніть enter щоб повернутись*",
+        "back_mob404": "*натисніть щоб повернутись*"
     }
 }
