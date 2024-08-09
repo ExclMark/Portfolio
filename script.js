@@ -596,11 +596,11 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-    function isMobileDevice() {
-        return /Mobi|Android/i.test(navigator.userAgent);
+    function isTouchDevice() {
+        return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) ||(navigator.msMaxTouchPoints > 0));
     }
 
-    if (isMobileDevice()) {
+    if (isTouchDevice()) {
         const swipeArea = document.getElementById('main-content');
         const hammer = new Hammer(swipeArea);
 
