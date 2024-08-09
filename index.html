@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="src/3xcl.png">
     <meta property="og:title" content="ExclMark">
@@ -13,18 +13,6 @@
     <title>ExclMark</title>
 </head>
 <body>
-    <div id="mobile-message" class="terminal error" style="display: none;">
-        <div class="bar">
-            <div class="buttons">
-                <div class="close"></div>
-                <div class="minimize"></div>
-                <div class="maximize"></div>
-            </div>
-            <div class="title">ExclMark</div>
-        </div>
-        <p>[    <span class='timestamp'>0.000000</span>] Booting Linux 5.15.0-70-generic...</p>
-        <p id="error-message"></p>
-    </div>
     <div id="main-content" class="terminal">
         <div class="bar">
             <div class="buttons">
@@ -36,6 +24,7 @@
         </div>
         <pre id="animated-text" class="boot"></pre>
     </div>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

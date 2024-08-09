@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     let booted = false;
     let langSelecton = false;
     let contactSelection = false;
+    let mobile = false;
 
     let lang = localLang;
 
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += "|  _| \\ \\/ / __| | |\\/| |/ _` | '__| |/ /\n";
             text += "| |___ >  < (__| | |  | | (_| | |  |   < \n";
             text += "|_____/_/\\_\\___|_|_|  |_|\\__,_|_|  |_|\\_\\</span>\n";
-            text += localization.nav;
+            text += mobile ? localization.mob_nav : localization.nav;
             text += parameterSelected == 0 ? "<span class='select'>> " + localization.about + " <</span>\n" : localization.about + "\n";
             text += parameterSelected == 1 ? "<span class='select'>> " + localization.projects + " <</span>\n" : localization.projects + "\n";
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.contact + " <</span>\n\n" : localization.contact + "\n\n";
@@ -146,21 +147,22 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += "|  _| \\ \\/ / __| | |\\/| |/ _` | '__| |/ /\n";
             text += "| |___ >  < (__| | |  | | (_| | |  |   < \n";
             text += "|_____/_/\\_\\___|_|_|  |_|\\__,_|_|  |_|\\_\\\n";
-            text += localization.nav;
+            text += mobile ? localization.mob_nav : localization.nav;
             text += parameterSelected == 0 ? "> " + localization.about + " <\n" : localization.about + "\n";
             text += parameterSelected == 1 ? "> " + localization.projects + " <\n" : localization.projects + "\n";
             text += parameterSelected == 2 ? "> " + localization.contact +" <\n\n" : localization.contact + "\n\n";
             text += parameterSelected == 3 ? "> " + localization.language +" <\n" : localization.language + "\n";
 
             let index = 0;
+            let mobCorrect = lang == "en" ? mobile ? 3 : 0 : mobile ? 1 : 0;
             if (parameterSelected === 0) {
-                index = lang == "en" ? 254 : 269;
+                index = lang == "en" ? 254 - mobCorrect : 269 - mobCorrect;
             } else if (parameterSelected === 1) {
-                index = lang == "en" ? 260 : 278;
+                index = lang == "en" ? 260 - mobCorrect : 278 - mobCorrect;
             } else if (parameterSelected === 2) {
-                index = lang == "en" ? 269 : 286;
+                index = lang == "en" ? 269 - mobCorrect : 286 - mobCorrect;
             } else {
-                index = lang == "en" ? 278 : 296;
+                index = lang == "en" ? 278 - mobCorrect : 296 - mobCorrect;
             }
 
             if (currentMenuIndex === index) {
@@ -455,7 +457,13 @@ document.addEventListener("DOMContentLoaded", async function() {
     // typeText();
     // menu();
 
-    document.addEventListener('keydown', async function(event) {
+    document.addEventListener('keydown', handleKeydown);
+
+    document.addEventListener('dblclick', function(event) {
+        event.preventDefault();
+    }, { passive: false });
+
+    async function handleKeydown(event) {
         if (!loaded && !skip) {
             if (booted) {
                 skip = true;
@@ -513,8 +521,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                 if (inPage) {
                     if (langSelecton) {
                         langSelecton = false;
-                        localStorage.setItem('lang', lang);
-                        await setLocalization(lang);
+                        if (lang != localization.lang) {
+                            localStorage.setItem('lang', lang);
+                            await setLocalization(lang);
+                        }
                         textElement.textContent = '';
                         inPage = false;
                         loaded = false;
@@ -583,15 +593,46 @@ document.addEventListener("DOMContentLoaded", async function() {
                 }
                 break;
         }
-    });
+    }
 
     function isMobileDevice() {
         return /Mobi|Android/i.test(navigator.userAgent);
     }
 
     if (isMobileDevice()) {
-        document.getElementById('mobile-message').style.display = 'block';
-        document.getElementById('main-content').style.display = 'none';
-        document.getElementById('error-message').innerHTML = localization.mobile;
+        const swipeArea = document.getElementById('main-content');
+        const hammer = new Hammer(swipeArea);
+
+        mobile = true;
+
+        function simulateKeyAction(key) {
+            const event = new KeyboardEvent('keydown', {
+                key: key,
+                code: key === 'ArrowUp' ? 'ArrowUp' : key === 'ArrowDown' ? 'ArrowDown' : 'Enter',
+                keyCode: key === 'ArrowUp' ? 38 : key === 'ArrowDown' ? 40 : 13,
+                which: key === 'ArrowUp' ? 38 : key === 'ArrowDown' ? 40 : 13,
+                bubbles: true
+            });
+
+            document.dispatchEvent(event);
+        }
+
+        function handleSwipe(event) {
+            if (event.direction === Hammer.DIRECTION_UP) {
+                simulateKeyAction('ArrowUp');
+            } else if (event.direction === Hammer.DIRECTION_DOWN) {
+                simulateKeyAction('ArrowDown');
+            }
+        }
+
+        function handleTap() {
+            simulateKeyAction('Enter');
+        }
+
+        hammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+        hammer.on('swipeup', handleSwipe);
+        hammer.on('swipedown', handleSwipe);
+        hammer.on('tap', handleTap);
     }
 });

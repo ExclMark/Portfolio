@@ -7,6 +7,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+    .terminal {
+        margin-bottom: 10vh;
+    }
 }
 
 .terminal {
@@ -16,7 +24,7 @@ body {
     padding: 20px;;
     width: 80%;
     max-width: 1200px;
-    min-width: 600px;
+    min-width: 290px;
     height: 80%;
     overflow: hidden;
     position: relative;
@@ -91,11 +99,16 @@ body {
     height: 100%;
 }
 
+#main-content {
+    touch-action: manipulation;
+}
+
 pre {
     font-size: 1.2rem;
     line-height: 1.5;
     margin: 0;
     white-space: pre-wrap;
+    touch-action: none;
 }
 
 .ok {
@@ -140,6 +153,20 @@ pre {
     font-weight: bold;
 }
 
+/* @media (max-width: 800px) {
+    .logo {
+        font-size: 2vw; 
+        line-height: 0;
+        letter-spacing: 0;
+    }
+} */
+
 .logo {
     color: #59cd90;
+    font-size: max(0.7rem, 2vmin);
+    line-height: 0;
+}
+
+.logo span {
+    margin: -1em 0;
 }
