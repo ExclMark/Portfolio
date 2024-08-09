@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += parameterSelected == 3 ? "> " + localization.language +" <\n" : localization.language + "\n";
 
             let index = 0;
-            let mobCorrect = lang == "en" ? mobile ? 3 : 0 : mobile ? 1 : 0;
+            let mobCorrect = lang == "en" ? mobile ? 2 : 0 : mobile ? 1 : 0;
             if (parameterSelected === 0) {
                 index = lang == "en" ? 254 - mobCorrect : 269 - mobCorrect;
             } else if (parameterSelected === 1) {
