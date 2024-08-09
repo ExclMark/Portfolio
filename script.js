@@ -138,7 +138,6 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.contact + " <</span>\n\n" : localization.contact + "\n\n";
             text += parameterSelected == 3 ? "<span class='select'>> " + localization.language + " <\n" : localization.language + "\n";
             textElement.innerHTML = text;
-            // textElement.textContent += parameterSelected == 3 ? "> Contact\n" : "Contact\n";
             loaded = true;
             skip = false;
         } else {
@@ -213,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function about(span) {
         let text = "./about\n\n";
-        text += "[REDACTED]\n\n";
+        text += localization.redacted;
         text += mobile ? localization.mob_exit : localization.exit;
 
         if (currentMenuIndex < text.length) {
@@ -236,7 +235,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function projects(span) {
         let text = "./projects\n\n";
-        text += "[REDACTED]\n\n";
+        text += localization.redacted;
         text += mobile ? localization.mob_exit : localization.exit;
 
         if (currentMenuIndex < text.length) {

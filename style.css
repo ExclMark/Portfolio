@@ -163,10 +163,7 @@ pre {
 
 .logo {
     color: #59cd90;
-    font-size: max(0.7rem, 2vmin);
-    line-height: 0;
-}
-
-.logo span {
-    margin: -1em 0;
+    font-size: max(0.7rem, 3vmin);
+    line-height: 1.2;
+    display: block;
 }

@@ -1,9 +1,10 @@
 {
     "en": {
         "lang": "en",
+        "redacted": "[REDACTED]\n\n",
         "mobile": "[  <span class='fail'>FAIL</span>  ] No keyboard detected...<br>Please use PC to access the website.",
         "nav": "\n*use arrows to navigate, enter to select*\n\n",
-        "mob_nav": "\n*use swipe to navigate, tap to select*\n\n",
+        "mob_nav": "\n*use swipes to navigate, tap to select*\n\n",
         "about": "About",
         "projects": "Projects",
         "contact": "Contact",
@@ -19,6 +20,7 @@
     },
     "uk": {
         "lang": "uk",
+        "redacted": "[РЕДАГОВАНО]\n\n",
         "mobile": "[  <span class='fail'>FAIL</span>  ] Клавіатура не виявлена...<br>Будь ласка, використовуйте ПК для доступу до сайту.",
         "nav": "\n*використовуйте стрілки для навігації, enter для вибору*\n\n",
         "mob_nav": "\n*використовуйте свайпи для навігації, дотик для вибору*\n\n",
