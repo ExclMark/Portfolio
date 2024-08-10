@@ -35,9 +35,9 @@ if (isTouchDevice()) {
 document.addEventListener("DOMContentLoaded", async function() {
     localization = await getLocalization();
 
-    let text1 = localization.error404;
-    let text2 = localization.code404
-    let text3 = localization.message404;
+    let text1 = localization.error404 + "\n";
+    let text2 = localization.code404 + "\n"
+    let text3 = localization.message404 + "\n\n";
     let text4 = mobile ? localization.back_mob404 : localization.back404;
 
     terminal.innerHTML = '<span class="fail">./error</span>\n\n';

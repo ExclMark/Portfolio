@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += "|  _| \\ \\/ / __| | |\\/| |/ _` | '__| |/ /\n";
             text += "| |___ >  < (__| | |  | | (_| | |  |   < \n";
             text += "|_____/_/\\_\\___|_|_|  |_|\\__,_|_|  |_|\\_\\</span>\n";
-            text += mobile ? localization.mob_nav : localization.nav;
+            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
             text += parameterSelected == 0 ? "<span class='select'>> " + localization.about + " <</span>\n" : localization.about + "\n";
             text += parameterSelected == 1 ? "<span class='select'>> " + localization.projects + " <</span>\n" : localization.projects + "\n";
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.contact + " <</span>\n\n" : localization.contact + "\n\n";
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             text += "|  _| \\ \\/ / __| | |\\/| |/ _` | '__| |/ /\n";
             text += "| |___ >  < (__| | |  | | (_| | |  |   < \n";
             text += "|_____/_/\\_\\___|_|_|  |_|\\__,_|_|  |_|\\_\\\n";
-            text += mobile ? localization.mob_nav : localization.nav;
+            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
             text += parameterSelected == 0 ? "> " + localization.about + " <\n" : localization.about + "\n";
             text += parameterSelected == 1 ? "> " + localization.projects + " <\n" : localization.projects + "\n";
             text += parameterSelected == 2 ? "> " + localization.contact +" <\n\n" : localization.contact + "\n\n";
@@ -247,7 +247,6 @@ document.addEventListener("DOMContentLoaded", async function() {
                 setTimeout(typeText, 0);
             }
             if (currentCommandIndex == 6) {
-                // return;
                 textElement.innerHTML = '';
                 booted = true;
                 setTimeout(menu, 200);

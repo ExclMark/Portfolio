@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         let text = "";
 
         text = "./language\n";
-        text += localization.nav;
+        text += "\n" + localization.nav + "\n\n";
         text += lang == 'en' ? "> English <\n" : "English\n";
         text += lang == 'uk' ? "> Українська <\n" : "Українська\n";
 
         if (init) {
             text = "<span class='pwd'>./language</span>\n";
-            text += localization.nav;
+            text += "\n" + localization.nav + "\n\n";
             text += lang == 'en' ? "<span class='select'>> English <</span>\n" : "English\n";
             text += lang == 'uk' ? "<span class='select'>> Українська <</span>\n" : "Українська\n";
             textElement.innerHTML = text;

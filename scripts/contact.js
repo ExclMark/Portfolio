@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let text = "";
 
         text = "./contact\n";
-        text += localization.nav;
+        text += "\n" + localization.nav + "\n\n";
         text += parameterSelected == 0 ? "> GitHub <\n" : "GitHub\n";
         text += parameterSelected == 1 ? "> Discord <\n\n" : "Discord\n";
         text += parameterSelected == 2 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (init) {
             text = "<span class='pwd'>./contact</span>\n";
-            text += localization.nav;
+            text += "\n" + localization.nav + "\n\n";
             text += parameterSelected == 0 ? "<span class='select'>> GitHub <</span>\n" : "GitHub\n";
             text += parameterSelected == 1 ? "<span class='select'>> Discord <</span>\n" : "Discord\n";
             text += parameterSelected == 2 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";

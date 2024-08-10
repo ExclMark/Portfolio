@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function projects(span) {
         let text = "./projects\n\n";
-        text += localization.redacted;
+        text += localization.redacted + "\n\n";
         text += mobile ? localization.mob_exit : localization.exit;
 
         if (currentMenuIndex < text.length) {
