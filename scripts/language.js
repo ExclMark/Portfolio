@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     function language(span, init = false) {
         let text = "";
 
+        localStorage.setItem("preBoot", "true");
+
         text = "./language\n";
         text += "\n" + localization.nav + "\n\n";
         text += lang == 'en' ? "> English <\n" : "English\n";
