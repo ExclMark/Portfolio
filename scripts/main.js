@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     let currentBootIndex = 0;
     let currentMenuIndex = 0;
 
-    let inPage = false;
     let loaded = false;
     let command = true;
     let select = false;
@@ -72,8 +71,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     let skip = false;
     let skip_boot = false;
     let booted = false;
-    let langSelecton = false;
-    let contactSelection = false;
 
     let lang = localization.lang;
 
@@ -270,8 +267,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         booted = true;
         menu();
     }
-    // typeText();
-    // menu();
 
     document.addEventListener('keydown', handleKeydown);
 
@@ -292,41 +287,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
         switch (event.key) {
             case 'ArrowUp':
-                if (!inPage) {
-                    parameterSelected = Math.max(0, parameterSelected - 1);
-                    menu(false);
-                }
+                parameterSelected = (parameterSelected - 1 + 4) % 4;
+                menu(false);
                 break;
             case 'ArrowDown':
-                if (!inPage) {
-                    parameterSelected = Math.min(3, parameterSelected + 1);
-                    menu(false);
-                }
+                parameterSelected = (parameterSelected + 1) % 4;
+                menu(false);
                 break;
             case 'Enter':
-                if (inPage) {
-                    if (langSelecton) {
-                        langSelecton = false;
-                        if (lang != localization.lang) {
-                            localStorage.setItem('lang', lang);
-                            await setLocalization(lang);
-                            localization = await getLocalization();
-                        }
-                        textElement.textContent = '';
-                        inPage = false;
-                        loaded = false;
-                        currentMenuIndex = 0;
-                        menu();
-                    } else {
-                        textElement.textContent = '';
-                        inPage = false;
-                        loaded = false;
-                        currentMenuIndex = 0;
-                        menu();
-                    }
-                    break;
-                }
-
                 switch (parameterSelected) {
                     case 0:
                         localStorage.setItem("preBoot", "true");

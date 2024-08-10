@@ -92,11 +92,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         textElement.appendChild(span);
         switch (event.key) {
             case 'ArrowUp':
-                parameterSelected = Math.max(0, parameterSelected - 1);
+                parameterSelected = (parameterSelected - 1 + 4) % 4;
                 contact(span, true);
                 break;
             case 'ArrowDown':
-                parameterSelected = Math.min(3, parameterSelected + 1);
+                parameterSelected = (parameterSelected + 1) % 4;
                 contact(span, true);
                 break;
             case 'Enter':
