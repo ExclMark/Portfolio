@@ -1,0 +1,169 @@
+body {
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+    .terminal {
+        margin-bottom: 10vh;
+    }
+}
+
+.terminal {
+    background-color: #1c1e22;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;;
+    width: 80%;
+    max-width: 1200px;
+    min-width: 290px;
+    height: 80%;
+    overflow: hidden;
+    position: relative;
+}
+
+.error {
+    min-width: 200px !important;
+    min-height: 150px;
+    height: 10%;
+}
+
+.bar {
+    background-color: #353a42;
+    border-radius: 8px 8px 0 0;
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    left: 10px
+}
+
+.close {
+    background-color: #ff5c57;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+
+.minimize {
+    background-color: #f5be5b;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+
+.maximize {
+    background-color: #59cd90;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.title {
+    text-align: center;
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+#animated-text {
+    color: #d3d3d3;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: 1vh;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    height: 100%;
+}
+
+#main-content {
+    touch-action: manipulation;
+}
+
+pre {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-wrap;
+    touch-action: none;
+}
+
+.ok {
+    color: green;
+    font-weight: bold;
+}
+
+.fail {
+    color: rgb(240, 74, 74);
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #888888;
+}
+
+.command {
+    color: #389db7;
+}
+
+.folder {
+    color: #5684ce;
+    font-weight: bold;
+}
+
+.file {
+    color: #44bddb;
+    font-weight: bold;
+}
+
+.pwd {
+    color: #5684ce;
+}
+
+.prefix {
+    color: #d65757;
+}
+
+.select {
+    background-color: #abb2bf;
+    color: #1c1e22;
+    font-weight: bold;
+}
+
+/* @media (max-width: 800px) {
+    .logo {
+        font-size: 2vw; 
+        line-height: 0;
+        letter-spacing: 0;
+    }
+} */
+
+.logo {
+    color: #59cd90;
+    font-size: max(0.7rem, 3vmin);
+    line-height: 1.2;
+    display: block;
+}
