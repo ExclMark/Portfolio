@@ -35,6 +35,8 @@ if (isTouchDevice()) {
 document.addEventListener("DOMContentLoaded", async function() {
     localization = await getLocalization();
 
+    localStorage.setItem("preBoot", "true");
+
     let text1 = localization.error404 + "\n";
     let text2 = localization.code404 + "\n"
     let text3 = localization.message404 + "\n\n";

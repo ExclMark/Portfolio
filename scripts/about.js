@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let textElement = document.getElementById("animated-text");
     textElement.style.overflow = 'hidden';
 
+    localStorage.setItem("preBoot", "true");
+
     setHorizontal();
 
     textElement.textContent = '';

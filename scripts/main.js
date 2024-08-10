@@ -294,26 +294,23 @@ document.addEventListener("DOMContentLoaded", async function() {
                 menu(false);
                 break;
             case 'Enter':
+                let localhost = false;
                 switch (parameterSelected) {
                     case 0:
-                        localStorage.setItem("preBoot", "true");
                         localStorage.setItem("previousParameter", parameterSelected);
-                        window.open('about.html', '_self');
+                        window.location.href = localhost ? 'about.html' : '/about';
                         break;
                     case 1:
-                        localStorage.setItem("preBoot", "true");
                         localStorage.setItem("previousParameter", parameterSelected);
-                        window.open('projects.html', '_self');
+                        window.location.href = localhost ? 'projects.html' : '/projects';
                         break;
                     case 2:
-                        localStorage.setItem("preBoot", "true");
                         localStorage.setItem("previousParameter", parameterSelected);
-                        window.open('contact.html', '_self');
+                        window.location.href = localhost ? 'contact.html' : '/contact';
                         break;
                     case 3:
-                        localStorage.setItem("preBoot", "true");
                         localStorage.setItem("previousParameter", parameterSelected);
-                        window.open('language.html', '_self');
+                        window.location.href = localhost ? 'language.html' : '/language';
                         break;
                 }
                 break;

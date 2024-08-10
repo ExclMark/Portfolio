@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     localization = await getLocalization();
     let textElement = document.getElementById("animated-text");
 
+    localStorage.setItem("preBoot", "true");
+
     textElement.textContent = '';
     const span = document.createElement('span');
     span.className = 'pwd';
