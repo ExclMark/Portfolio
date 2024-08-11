@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     localization = await getLocalization();
     let textElement = document.getElementById("animated-text");
 
+    localStorage.setItem("preBoot", "true");
+    localStorage.setItem("previousParameter", 3);
+
     textElement.textContent = '';
     const span = document.createElement('span');
     span.className = 'pwd';
@@ -19,25 +22,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     function language(span) {
         let text = "";
 
-        localStorage.setItem("preBoot", "true");
-
-        text = "./language\n";
-        text += "\n" + localization.nav + "\n\n";
+        text = `./language - [${localization.lang}]\n`;
+        text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
         text += lang == 'en' ? "> English <\n" : "English\n";
         text += lang == 'uk' ? "> Українська <\n" : "Українська\n";
 
         if (skip) {
-            text = "<span class='pwd'>./language</span>\n";
-            text += "\n" + localization.nav + "\n\n";
+            text = `<span class='pwd'>./language - [${localization.lang}]</span>\n`;
+            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
             text += lang == 'en' ? "<span class='select'>> English <</span>\n" : "English\n";
             text += lang == 'uk' ? "<span class='select'>> Українська <</span>\n" : "Українська\n";
             textElement.innerHTML = text;
         } else {
             let index = 0;
+            let mobCorrect = localization.lang == "en" ? (mobile ? 2 : 0) : (mobile ? 1 : 0);
             if (lang == "en") {
-                index = 55;
+                index = 62 - mobCorrect;
             } else {
-                index = localization.lang == "en" ? 64 : 78;
+                index = localization.lang == "en" ? 71 - mobCorrect : 85 - mobCorrect;
             }
     
             if (currentMenuIndex === index) {
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (currentMenuIndex === index) {
                     textElement.appendChild(selectSpan);
                 }
-                if (currentMenuIndex > 9) {
+                if (currentMenuIndex > 16) {
                     command = false;
                 }
                 if (command) {

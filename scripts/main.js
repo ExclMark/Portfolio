@@ -297,19 +297,15 @@ document.addEventListener("DOMContentLoaded", async function() {
                 let localhost = false;
                 switch (parameterSelected) {
                     case 0:
-                        localStorage.setItem("previousParameter", parameterSelected);
                         window.location.href = localhost ? 'about.html' : '/about';
                         break;
                     case 1:
-                        localStorage.setItem("previousParameter", parameterSelected);
                         window.location.href = localhost ? 'projects.html' : '/projects';
                         break;
                     case 2:
-                        localStorage.setItem("previousParameter", parameterSelected);
                         window.location.href = localhost ? 'contact.html' : '/contact';
                         break;
                     case 3:
-                        localStorage.setItem("previousParameter", parameterSelected);
                         window.location.href = localhost ? 'language.html' : '/language';
                         break;
                 }

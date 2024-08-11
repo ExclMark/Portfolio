@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     textElement.style.overflow = 'hidden';
 
     localStorage.setItem("preBoot", "true");
+    localStorage.setItem("previousParameter", 0);
 
     setHorizontal();
 
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function about(span) {
         if (loaded) {
-            textElement.innerHTML = `<span class='pwd'>./about [${page}/${totalPages}]</span>\n\n`;
+            textElement.innerHTML = `<span class='pwd'>./about - [${page}/${totalPages}]</span>\n\n`;
             textElement.innerHTML += pages[page - 1];
         } else {
             let text = pages[page - 1];
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const span = document.createElement('span');
         span.className = 'pwd';
         textElement.appendChild(span);
-        span.textContent = `./about [${page}/${totalPages}]\n\n`;
+        span.textContent = `./about - [${page}/${totalPages}]\n\n`;
         currentMenuIndex = 0;
         loaded = false;
         about(span);

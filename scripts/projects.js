@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let textElement = document.getElementById("animated-text");
 
     localStorage.setItem("preBoot", "true");
+    localStorage.setItem("previousParameter", 1);
 
     textElement.textContent = '';
     const span = document.createElement('span');
