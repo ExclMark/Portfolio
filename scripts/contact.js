@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let textElement = document.getElementById("animated-text");
 
     localStorage.setItem("preBoot", "true");
+    localStorage.setItem("previousParameter", 2);
 
     textElement.textContent = '';
     const span = document.createElement('span');
@@ -21,30 +22,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         let text = "";
 
         text = "./contact\n";
-        text += "\n" + localization.nav + "\n\n";
+        text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
         text += parameterSelected == 0 ? "> GitHub <\n" : "GitHub\n";
         text += parameterSelected == 1 ? "> Discord <\n\n" : "Discord\n";
-        text += parameterSelected == 2 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
-        text += parameterSelected == 3 ? "> " + localization.back + " <" : localization.back;
+        text += parameterSelected == 2 ? "> Telegram <\n\n" : "Telegram\n";
+        text += parameterSelected == 3 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
+        text += parameterSelected == 4 ? "> " + localization.back + " <" : localization.back;
 
         if (skip) {
             text = "<span class='pwd'>./contact</span>\n";
-            text += "\n" + localization.nav + "\n\n";
+            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
             text += parameterSelected == 0 ? "<span class='select'>> GitHub <</span>\n" : "GitHub\n";
             text += parameterSelected == 1 ? "<span class='select'>> Discord <</span>\n" : "Discord\n";
-            text += parameterSelected == 2 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";
-            text += parameterSelected == 3 ? "<span class='select'>> " + localization.back + " <" : localization.back;
+            text += parameterSelected == 2 ? "<span class='select'>> Telegram <</span>\n" : "Telegram\n";
+            text += parameterSelected == 3 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";
+            text += parameterSelected == 4 ? "<span class='select'>> " + localization.back + " <" : localization.back;
             textElement.innerHTML = text;
         } else {
             let index = 0;
+            let mobCorrect = localization.lang == "en" ? (mobile ? 2 : 0) : (mobile ? 1 : 0);
             if (parameterSelected == 0) {
-                index = localization.lang == "en" ? 54 : 69;
-            } else if (parameterSelected == 1) {
-                index = 63;
-            } else if (parameterSelected == 2) {
-                index = 72;
-            } else {
-                index = 81;
+                index = localization.lang == "en" ? 54 - mobCorrect : 69 - mobCorrect;
             }
     
             if (currentMenuIndex === index) {
@@ -92,11 +90,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         skip = true;
         switch (event.key) {
             case 'ArrowUp':
-                parameterSelected = (parameterSelected - 1 + 4) % 4;
+                parameterSelected = (parameterSelected - 1 + 5) % 5;
                 contact(span);
                 break;
             case 'ArrowDown':
-                parameterSelected = (parameterSelected + 1) % 4;
+                parameterSelected = (parameterSelected + 1) % 5;
                 contact(span);
                 break;
             case 'Enter':
@@ -108,9 +106,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                         window.open('https://discordapp.com/users/665234248482947083', '_blank');
                         break;
                     case 2:
-                        window.open('mailto:info@3xcl.dev', '_blank');
+                        window.open('https://t.me/excl_dev', '_blank');
                         break;
                     case 3:
+                        window.open('mailto:info@3xcl.dev', '_blank');
+                        break;
+                    case 4:
                         document.removeEventListener('keydown', handleKeydown);
                         window.location.href = '/';
                         break
