@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 menu(false);
                 break;
             case 'Enter':
-                let localhost = false;
+                let localhost = true;
                 switch (parameterSelected) {
                     case 0:
                         localStorage.setItem("previousParameter", parameterSelected);

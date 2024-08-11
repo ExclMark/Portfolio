@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentMenuIndex = 0;
     let parameterSelected = 0;
     let command = true;
+    let skip = false;
     const menuSpeed = 5;
 
-    function contact(span, init = false) {
+    function contact(span) {
         let text = "";
 
         text = "./contact\n";
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         text += parameterSelected == 2 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
         text += parameterSelected == 3 ? "> " + localization.back + " <" : localization.back;
 
-        if (init) {
+        if (skip) {
             text = "<span class='pwd'>./contact</span>\n";
             text += "\n" + localization.nav + "\n\n";
             text += parameterSelected == 0 ? "<span class='select'>> GitHub <</span>\n" : "GitHub\n";
@@ -34,53 +35,49 @@ document.addEventListener("DOMContentLoaded", async () => {
             text += parameterSelected == 2 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";
             text += parameterSelected == 3 ? "<span class='select'>> " + localization.back + " <" : localization.back;
             textElement.innerHTML = text;
-            loaded = true;
-            return;
-        }
-
-        let index = 0;
-        if (parameterSelected == 0) {
-            index = localization.lang == "en" ? 54 : 69;
-        } else if (parameterSelected == 1) {
-            index = 63;
-        } else if (parameterSelected == 2) {
-            index = 72;
         } else {
-            index = 81;
-        }
-
-        if (currentMenuIndex === index) {
-            selectSpan = document.createElement('span');
-            selectSpan.className = 'select';
-            textElement.appendChild(selectSpan);
-            select = true;
-        } else {
-            selectSpan = textElement.querySelector('span.select:last-child');
-        }
-
-        if (currentMenuIndex < text.length) {
-            if (currentMenuIndex === index) {
-                textElement.appendChild(selectSpan);
-            }
-            loaded = false;
-            if (currentMenuIndex > 9) {
-                command = false;
-            }
-            if (command) {
-                span.innerHTML += text[currentMenuIndex];
-            } else if (select) {
-                selectSpan.innerHTML += text[currentMenuIndex];
+            let index = 0;
+            if (parameterSelected == 0) {
+                index = localization.lang == "en" ? 54 : 69;
+            } else if (parameterSelected == 1) {
+                index = 63;
+            } else if (parameterSelected == 2) {
+                index = 72;
             } else {
-                textElement.innerHTML += text[currentMenuIndex];
+                index = 81;
             }
-            if (text[currentMenuIndex] == "\n") {
-                select = false
+    
+            if (currentMenuIndex === index) {
+                selectSpan = document.createElement('span');
+                selectSpan.className = 'select';
+                textElement.appendChild(selectSpan);
+                select = true;
+            } else {
+                selectSpan = textElement.querySelector('span.select:last-child');
             }
-            currentMenuIndex++;
-            setTimeout(() => contact(span), menuSpeed);
-        } else {
-            loaded = true;
-            command = true;
+    
+            if (currentMenuIndex < text.length) {
+                if (currentMenuIndex === index) {
+                    textElement.appendChild(selectSpan);
+                }
+                if (currentMenuIndex > 9) {
+                    command = false;
+                }
+                if (command) {
+                    span.innerHTML += text[currentMenuIndex];
+                } else if (select) {
+                    selectSpan.innerHTML += text[currentMenuIndex];
+                } else {
+                    textElement.innerHTML += text[currentMenuIndex];
+                }
+                if (text[currentMenuIndex] == "\n") {
+                    select = false
+                }
+                currentMenuIndex++;
+                setTimeout(() => contact(span), menuSpeed);
+            } else {
+                command = true;
+            }
         }
     }
 
@@ -92,14 +89,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         const span = document.createElement('span');
         span.className = 'pwd';
         textElement.appendChild(span);
+        skip = true;
         switch (event.key) {
             case 'ArrowUp':
                 parameterSelected = (parameterSelected - 1 + 4) % 4;
-                contact(span, true);
+                contact(span);
                 break;
             case 'ArrowDown':
                 parameterSelected = (parameterSelected + 1) % 4;
-                contact(span, true);
+                contact(span);
                 break;
             case 'Enter':
                 switch (parameterSelected) {
