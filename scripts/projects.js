@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 projects(span);
                 break;
             case 'Enter':
-                let localhost = true;
+                let localhost = false;
                 switch (parameterSelected) {
                     case 0:
                         window.location.href = localhost ? '/projects/portfolio.html' : '/projects/portfolio';
