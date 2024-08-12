@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 setTimeout(() => contact(span), menuSpeed);
             } else {
                 command = true;
+                skip = true;
             }
         }
     }

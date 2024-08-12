@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 setTimeout(() => language(span), menuSpeed);
             } else {
                 command = true;
+                skip = true;
             }
         }
 

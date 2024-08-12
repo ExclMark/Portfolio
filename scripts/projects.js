@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 setTimeout(() => projects(span), menuSpeed);
             } else {
                 command = true;
+                skip = true;
             }
         }
     }
