@@ -20,6 +20,14 @@ function setHorizontal() {
     hammer.off('swipedown', handleSwipe);
 }
 
+function setAll() {
+    hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+    hammer.on('swipeleft', handleSwipe);
+    hammer.on('swiperight', handleSwipe);
+    hammer.on('swipeup', handleSwipe);
+    hammer.off('swipedown', handleSwipe);
+}
+
 const swipeArea = document.getElementById('main-content');
 const hammer = new Hammer(swipeArea);
 
