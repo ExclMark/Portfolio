@@ -17,7 +17,7 @@ async function setLocalization(language) {
 async function getLocalization() {
     let userLang = navigator.languages
 
-    let defLang = ['ru', 'uk'].includes(userLang) ? 'uk' : 'en';
+    let defLang = userLang.some(lang => ['ru', 'uk'].includes(lang)) ? 'uk' : 'en';
     let localLang = localStorage.getItem('lang') || defLang;
 
     if (!lang) {
