@@ -87,7 +87,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         const span = document.createElement('span');
         span.className = 'pwd';
         textElement.appendChild(span);
-        skip = true;
+        if (!skip) {
+            skip = true;
+            return;
+        }
         switch (event.key) {
             case 'ArrowUp':
                 parameterSelected = (parameterSelected - 1 + 5) % 5;
