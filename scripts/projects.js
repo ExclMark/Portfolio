@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         break;
                     case 5:
                         document.removeEventListener('keydown', handleKeydown);
+                        localStorage.setItem("previousProject", 0);
                         window.location.href = '/';
                         break
                 }
