@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let totalPages = 1;
     let loaded = false
     let pages;
+    let bold = false;
+    let link = false;
     const menuSpeed = 5;
 
     function getLineHeight(element) {
@@ -90,12 +92,59 @@ document.addEventListener("DOMContentLoaded", async () => {
     function about(span) {
         if (loaded) {
             textElement.innerHTML = `<span class='pwd'>./about - [${page}/${totalPages}]</span>\n\n`;
-            textElement.innerHTML += pages[page - 1];
+            let text = pages[page - 1];
+            bold = false;
+            link = false;
+            let formattedText = "";
+
+            for (let i = 0; i < text.length; i++) {
+                if (text[i] == "|" && !bold) {
+                    formattedText += "<span class='bold'>";
+                    bold = true;
+                } else if (text[i] == "|" && bold) {
+                    formattedText += "</span>";
+                    bold = false;
+                } else if (text[i] == "~" && !link) {
+                    formattedText += "<span class='command'>";
+                    link = true;
+                } else if (text[i] == "~" && link) {
+                    formattedText += "</span>";
+                    link = false;
+                } else {
+                    formattedText += text[i];
+                }
+            }
+
+            bold = false;
+            link = false;
+            textElement.innerHTML += formattedText;
         } else {
             let text = pages[page - 1];
         
             if (currentMenuIndex < text.length) {
-                textElement.innerHTML += text[currentMenuIndex];
+                if (text[currentMenuIndex] === "|" && !bold) {
+                    span = document.createElement('span');
+                    span.className = 'bold';
+                    textElement.appendChild(span);
+                    bold = true;
+                } else if (text[currentMenuIndex] === "|" && bold) {
+                    bold = false
+                }
+                if (text[currentMenuIndex] === "~" && !link) {
+                    span = document.createElement('span');
+                    span.className = 'command';
+                    textElement.appendChild(span);
+                    link = true;
+                } else if (text[currentMenuIndex] === "~" && link) {
+                    link = false
+                }
+                if (bold) {
+                    span.innerHTML += text[currentMenuIndex] === "|" ? "" : text[currentMenuIndex];
+                } else if (link) {
+                    span.innerHTML += text[currentMenuIndex] === "~" ? "" : text[currentMenuIndex];
+                } else {
+                    textElement.innerHTML += ["~", "|"].includes(text[currentMenuIndex]) ? "" : text[currentMenuIndex];
+                }
                 currentMenuIndex++;
                 setTimeout(() => about(span), menuSpeed);
             } else {
@@ -106,13 +155,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function updateHeader() {
         textElement.textContent = '';
-        let text = localization.page_hint + "\n\n"
+        let text = mobile ? localization.page_hint_mob + "\n\n" : localization.page_hint + "\n\n";
         text += localization.about_me + "\n\n";
         text += localization.passion + "\n\n";
         text += localization.certs + "\n" + localization.cert_list + "\n\n";
         text += localization.languages + "\n" + localization.lang_list + "\n\n";
         text += localization.ending;
-        text += mobile ? "\n\n" + localization.mob_exit : "\n\n" + localization.exit;
+        text += mobile ? "\n\n" + localization.exit_mob : "\n\n" + localization.exit;
         pages = paginateText(String(text));
         const span = document.createElement('span');
         span.className = 'pwd';

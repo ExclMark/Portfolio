@@ -140,6 +140,10 @@ pre {
     font-weight: bold;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .pwd {
     color: #5684ce;
 }
@@ -153,14 +157,6 @@ pre {
     color: #1c1e22;
     font-weight: bold;
 }
-
-/* @media (max-width: 800px) {
-    .logo {
-        font-size: 2vw; 
-        line-height: 0;
-        letter-spacing: 0;
-    }
-} */
 
 .logo {
     color: #59cd90;
