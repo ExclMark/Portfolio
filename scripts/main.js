@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     const textElement = document.getElementById('animated-text');
 
     localization = await getLocalization();
+    parameterSelected = parseInt(localStorage.getItem("previousParameter"), 10);
 
     const boot = [
         "[    <span class='timestamp'>0.000000</span>] Booting Linux 5.15.0-70-generic...",

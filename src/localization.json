@@ -38,10 +38,39 @@
             "exit": "*arrow up to exit*",
             "exit_mob": "*swipe up to exit*",
             "portfolio": {
+                "alias": "Portfolio",
                 "name": "Interactive Portfolio Website.",
                 "desc": "This website you're currently on! A personal portfolio website to showcase my skills and projects.",
                 "tech": "HTML, CSS, JavaScript.",
                 "link": "~https://github.com/ExclMark/Portfolio~"
+            }, 
+            "economybot": {
+                "alias": "Economy Bot",
+                "name": "Discord Economy Bot.",
+                "desc": "A Discord bot that simulates an economy system, allowing users to earn, spend, and gamble virtual currency. The project is not open-source. More than 100 servers have added the bot. Verified by the Discord.",
+                "tech": "Python, Interactions.py",
+                "link": "~https://top.gg/bot/852535785714483251~"
+            },
+            "rpoxubot": {
+                "alias": "Moderation Bot",
+                "name": "Twitch Moderation Bot for \"Rpoxu\".",
+                "desc": "A Twitch chat bot for Ukrainian streamer \"Rpoxu\". Bot includes functions such as word blacklist detection, link detection, ru lang detection, commands, announce reminders, raffle, and more. The project is not open-source. Built for specific needs of the streamer.",
+                "tech": "Python, Twitchio, Requests.",
+                "link": "Unavailable"
+            },
+            "tictactoe": {
+                "alias": "Tic-Tac-Toe",
+                "name": "Tic-Tac-Toe Game.",
+                "desc": "A simple Tic-Tac-Toe game built using Swift for iOS. Has two modes: PvP and vs AI (minimax). The project was made to learn the aspects of Swift and XCode.",
+                "tech": "Swift, XCode.",
+                "link": "~https://github.com/ExclMark/SwiftTicTacToe~"
+            },
+            "subnetcalc": {
+                "alias": "Network Calculator",
+                "name": "IPv4 Network Calculator",
+                "desc": "CLI based subnet/supernet calculator. Allows you to subnet/supernet any given network, and provides different useful info about IPv4 address.",
+                "tech": "Python, ipaddress.",
+                "link": "~https://github.com/ExclMark/SubnetCalc~"
             }
         }
     },
@@ -84,10 +113,39 @@
             "exit": "*стрілка вгору для виходу*",
             "exit_mob": "*свайп вгору для виходу*",
             "portfolio": {
+                "alias": "Портфоліо",
                 "name": "Інтерактивний вебсайт портфоліо.",
                 "desc": "Це вебсайт, на якому ви зараз перебуваєте! Особистий портфоліо вебсайт для демонстрації моїх навичок та проєктів.",
                 "tech": "HTML, CSS, JavaScript.",
                 "link": "~https://github.com/ExclMark/Portfolio~"
+            },
+            "economybot": {
+                "alias": "Економічний бот",
+                "name": "Економічний Discord Бот.",
+                "desc": "Бот для Discord, який симулює систему економіки, дозволяючи користувачам заробляти, витрачати та грати віртуальною валютою. Проєкт не є відкритим. Більше 100 серверів додали бота. Підтверджено Discord.",
+                "tech": "Python, Interactions.py",
+                "link": "~https://top.gg/bot/852535785714483251~"
+            },
+            "rpoxubot": {
+                "alias": "Модераційний бот",
+                "name": "Модераційний Twitch Бот для \"Rpoxu\".",
+                "desc": "Чат бот для Twitch стримера \"Rpoxu\". Бот включає функції, такі як виявлення слів з чорного списку, виявлення посилань, виявлення рос мови, команди, анонси нагадувань, розіграші та інше. Проєкт не є відкритим. Побудований для конкретних потреб стримера.",
+                "tech": "Python, Twitchio, Requests.",
+                "link": "Недоступно"
+            },
+            "tictactoe": {
+                "alias": "Хрестики-Нолики",
+                "name": "Гра в Хестики-Нолики.",
+                "desc": "Проста гра в Хестики-Нолики, побудована за допомогою Swift для iOS. Має два режими: PvP та vs AI (minimax). Проєкт був створений для вивчення аспектів Swift та XCode.",
+                "tech": "Swift, XCode.",
+                "link": "~https://github.com/ExclMark/SwiftTicTacToe~"
+            },
+            "subnetcalc": {
+                "alias": "Калькулятор мереж",
+                "name": "IPv4 Калькулятор Мереж",
+                "desc": "CLI базовий калькулятор підмереж/супермереж. Дозволяє вам підмережувати/супермережувати будь-яку задану мережу, та надає різну корисну інформацію про IPv4 адресу.",
+                "tech": "Python, ipaddress.",
+                "link": "~https://github.com/ExclMark/SubnetCalc~"
             }
         }
     }
