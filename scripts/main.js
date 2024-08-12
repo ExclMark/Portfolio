@@ -77,6 +77,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     function typeBoot() {
         if (currentBootIndex < boot.length) {
+            parameterSelected = 0;
+            localStorage.setItem("previousParameter", parameterSelected);
             const currentBoot = boot[currentBootIndex];
 
             textElement.innerHTML += currentBoot + '\n';
