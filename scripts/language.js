@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     language(span);
 
     document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('click', handleKeydown);
 
     async function handleKeydown(event) {
         const span = document.createElement('span');

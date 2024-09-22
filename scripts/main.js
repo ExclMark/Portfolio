@@ -321,6 +321,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('click', handleKeydown);
 
     document.addEventListener('dblclick', function(event) {
         event.preventDefault();
@@ -347,7 +348,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 menu(false);
                 break;
             case 'Enter':
-                let localhost = false;
+                let localhost = true;
                 switch (parameterSelected) {
                     case 0:
                         window.location.href = localhost ? 'about.html' : '/about';

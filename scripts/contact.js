@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     contact(span);
 
     document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('click', handleKeydown);
 
     function handleKeydown(event) {
         const span = document.createElement('span');
