@@ -298,6 +298,12 @@ pre {
     font-weight: bold;
 }
 
+.link {
+    color: var(--file-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .bold {
     font-weight: bold;
 }

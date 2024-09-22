@@ -120,12 +120,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 } else if (text[i] == "|" && bold) {
                     formattedText += "</span>";
                     bold = false;
-                } else if (text[i] == "~" && !link) {
-                    formattedText += "<span class='file'>";
-                    link = true;
-                } else if (text[i] == "~" && link) {
-                    formattedText += "</span>";
-                    link = false;
                 } else if (text[i] == "_" && !ud) {
                     formattedText += "<span class='ud'>";
                     ud = true;
@@ -152,14 +146,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     bold = true;
                 } else if (text[currentMenuIndex] === "|" && bold) {
                     bold = false
-                }
-                if (text[currentMenuIndex] === "~" && !link) {
-                    span = document.createElement('span');
-                    span.className = 'file';
-                    textElement.appendChild(span);
-                    link = true;
-                } else if (text[currentMenuIndex] === "~" && link) {
-                    link = false
                 }
                 if (text[currentMenuIndex] === "_" && !ud) {
                     span = document.createElement('span');
@@ -218,11 +204,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (event.key === 'ArrowUp') {
             document.removeEventListener('keydown', handleKeydown);
             window.location.href = '/projects';
-        }
-        if (event.key === "Enter") {
-            // let url = localization.project.rpoxubot.link;
-            // url = url.replace(/~/g, '');
-            // window.open(url, '_blank');
         }
         if (event.key === "ArrowRight") {
             if (page < totalPages) {

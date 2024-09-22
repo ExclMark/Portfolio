@@ -101,8 +101,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         totalPages = pages.length;
 
-        console.log(pages);
-
         return pages;
     }  
 
@@ -123,10 +121,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     formattedText += "</span>";
                     bold = false;
                 } else if (text[i] == "~" && !link) {
-                    formattedText += "<span class='file'>";
+                    let url = localization.project.portfolio.link;
+                    url = url.replace(/~/g, '');
+                    formattedText += `<a class='link' href='${url}'>`;
                     link = true;
                 } else if (text[i] == "~" && link) {
-                    formattedText += "</span>";
+                    formattedText += "</a>";
                     link = false;
                 } else if (text[i] == "_" && !ud) {
                     formattedText += "<span class='ud'>";
@@ -156,8 +156,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     bold = false
                 }
                 if (text[currentMenuIndex] === "~" && !link) {
-                    span = document.createElement('span');
-                    span.className = 'file';
+                    span = document.createElement('a');
+                    span.className = 'link';
+                    span.href = localization.project.portfolio.link.replace(/~/g, '');
                     textElement.appendChild(span);
                     link = true;
                 } else if (text[currentMenuIndex] === "~" && link) {
