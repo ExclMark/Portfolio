@@ -119,6 +119,7 @@ header {
 }
 
 body {
+    background-color: #6a6152;
     background-image: url('/src/wallpaper.jpg');
     background-size: cover;
     background-position: center;
