@@ -2,7 +2,7 @@
   💼 Interactive Portfolio Website 🌐<br/>
   <a href="https://3xcl.dev" target="_blank">3xcl.dev</a>
 </h2>
-<img width="100%" alt="Web Preview" src="https://github.com/user-attachments/assets/d00bc6ec-f675-4c40-afd3-bbcb366d58cc">
+<img width="100%" alt="Web Preview" src="https://github.com/user-attachments/assets/502b92a2-4a75-4abb-868c-d26b086101e3">
 
 ## Description:
 A static, interactive website build with HTML, CSS and JavaScript only.
