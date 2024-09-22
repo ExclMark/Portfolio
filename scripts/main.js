@@ -72,8 +72,29 @@ document.addEventListener("DOMContentLoaded", async function() {
     let skip = false;
     let skip_boot = false;
     let booted = false;
+    let ud = false;
 
     let lang = localization.lang;
+
+    function preloadImages(array) {
+        if (!preloadImages.list) {
+            preloadImages.list = [];
+        }
+        var list = preloadImages.list;
+        for (var i = 0; i < array.length; i++) {
+            var img = new Image();
+            img.onload = function() {
+                var index = list.indexOf(this);
+                if (index !== -1) {
+                    list.splice(index, 1);
+                }
+            }
+            list.push(img);
+            img.src = array[i];
+        }
+    }
+    
+    preloadImages(["/src/wallpaper.jpg", "/src/icon.png"]);
 
     function typeBoot() {
         if (currentBootIndex < boot.length) {
@@ -105,13 +126,25 @@ document.addEventListener("DOMContentLoaded", async function() {
         textElement.style.fontSize = '1.2rem';
         let selectSpan;
         if (init == false || skip) {
+            let mob = "";
             let text = "<span class='logo'>";
             text += " _____          _ __  __            _    \n";
             text += "| ____|_  _____| |  \\/  | __ _ _ __| | __\n";
             text += "|  _| \\ \\/ / __| | |\\/| |/ _` | '__| |/ /\n";
             text += "| |___ >  < (__| | |  | | (_| | |  |   < \n";
             text += "|_____/_/\\_\\___|_|_|  |_|\\__,_|_|  |_|\\_\\</span>\n";
-            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
+            mob = mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
+            for(let i = 0; i < mob.length; i++) {
+                if (mob[i] == "_" && !ud) {
+                    text += "<span class='ud'>";
+                    ud = true;
+                } else if (mob[i] == "_" && ud) {
+                    text += "</span>";
+                    ud = false;
+                } else {
+                    text += mob[i];
+                }
+            }
             text += parameterSelected == 0 ? "<span class='select'>> " + localization.about + " <</span>\n" : localization.about + "\n";
             text += parameterSelected == 1 ? "<span class='select'>> " + localization.projects + " <</span>\n" : localization.projects + "\n";
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.contact + " <</span>\n\n" : localization.contact + "\n\n";
@@ -135,13 +168,13 @@ document.addEventListener("DOMContentLoaded", async function() {
             let index = 0;
             let mobCorrect = lang == "en" ? mobile ? 2 : 0 : mobile ? 1 : 0;
             if (parameterSelected === 0) {
-                index = lang == "en" ? 254 - mobCorrect : 269 - mobCorrect;
+                index = lang == "en" ? 258 - mobCorrect : 273 - mobCorrect;
             } else if (parameterSelected === 1) {
-                index = lang == "en" ? 260 - mobCorrect : 278 - mobCorrect;
+                index = lang == "en" ? 264 - mobCorrect : 282 - mobCorrect;
             } else if (parameterSelected === 2) {
-                index = lang == "en" ? 269 - mobCorrect : 286 - mobCorrect;
+                index = lang == "en" ? 273 - mobCorrect : 290 - mobCorrect;
             } else {
-                index = lang == "en" ? 278 - mobCorrect : 296 - mobCorrect;
+                index = lang == "en" ? 282 - mobCorrect : 300 - mobCorrect;
             }
 
             if (currentMenuIndex === index) {
@@ -170,7 +203,23 @@ document.addEventListener("DOMContentLoaded", async function() {
                     if (select) {
                         selectSpan.innerHTML += text[currentMenuIndex];
                     } else {
-                        textElement.innerHTML += text[currentMenuIndex];
+                        if (text[currentMenuIndex] == "_" && !ud) {
+                            const udSpan = document.createElement('span');
+                            udSpan.className = 'ud';
+                            textElement.appendChild(udSpan);
+                            ud = true;
+                        } else if (text[currentMenuIndex] == "_" && ud) {
+                            ud = false;
+                        } else {
+                            if (ud) {
+                                const lastUdSpan = textElement.querySelector('span.ud:last-child');
+                                if (lastUdSpan) {
+                                    lastUdSpan.innerHTML += text[currentMenuIndex];
+                                }
+                            } else {
+                                textElement.innerHTML += text[currentMenuIndex];
+                            }
+                        }
                     }
                 }
                 if (text[currentMenuIndex] == "\n") {
@@ -263,6 +312,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             textElement.style.fontSize = '0.8rem';
         }
         typeBoot();
+        // menu();
     } else {
         parameterSelected = parseInt(localStorage.getItem("previousParameter"), 10);
         localStorage.setItem("preBoot", "false");

@@ -33,7 +33,8 @@ const hammer = new Hammer(swipeArea);
 
 if (isTouchDevice()) {
     mobile = true;
-    // document.getElementById('animated-text').style.fontSize = '0.8rem';
+    const headers = document.querySelectorAll('header');
+    headers.forEach(header => header.remove());
 
     function simulateKeyAction(key) {
         const event = new KeyboardEvent('keydown', {

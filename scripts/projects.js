@@ -17,10 +17,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     let select = false;
     let command = true;
     let skip = false;
+    let ud = false;
     const menuSpeed = 5;
 
     function projects(span) {
         let text = "";
+        let mob = "";
 
         text = "./projects\n";
         text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
@@ -34,7 +36,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (skip) {
             text = "<span class='pwd'>./projects</span>\n";
-            text += mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
+            mob = mobile ? "\n" + localization.mob_nav + "\n\n" : "\n" + localization.nav + "\n\n";
+            for(let i = 0; i < mob.length; i++) {
+                if (mob[i] == "_" && !ud) {
+                    text += "<span class='ud'>";
+                    ud = true;
+                } else if (mob[i] == "_" && ud) {
+                    text += "</span>";
+                    ud = false;
+                } else {
+                    text += mob[i];
+                }
+            }
             text += parameterSelected == 0 ? "<span class='select'>> " + localization.project.portfolio.alias + " <</span>\n" : localization.project.portfolio.alias + "\n";
             text += parameterSelected == 1 ? "<span class='select'>> " + localization.project.economybot.alias + " <</span>\n" : localization.project.economybot.alias + "\n";
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.project.rpoxubot.alias + " <</span>\n" : localization.project.rpoxubot.alias + "\n";
@@ -46,15 +59,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             let index = 0;
             let mobCorrect = localization.lang == "en" ? (mobile ? 2 : 0) : (mobile ? 1 : 0);
             if (parameterSelected == 0) {
-                index = localization.lang == "en" ? 55 - mobCorrect : 70 - mobCorrect;
+                index = localization.lang == "en" ? 59 - mobCorrect : 74 - mobCorrect;
             } else if (parameterSelected == 1) {
-                index = localization.lang == "en" ? 65 - mobCorrect : 80 - mobCorrect;
+                index = localization.lang == "en" ? 69 - mobCorrect : 84 - mobCorrect;
             } else if (parameterSelected == 2) {
-                index = localization.lang == "en" ? 77 - mobCorrect : 96 - mobCorrect;
+                index = localization.lang == "en" ? 81 - mobCorrect : 100 - mobCorrect;
             } else if (parameterSelected == 3) {
-                index = localization.lang == "en" ? 92 - mobCorrect : 113 - mobCorrect;
+                index = localization.lang == "en" ? 96 - mobCorrect : 117 - mobCorrect;
             } else if (parameterSelected == 4) {
-                index = localization.lang == "en" ? 104 - mobCorrect : 129 - mobCorrect;
+                index = localization.lang == "en" ? 108 - mobCorrect : 133 - mobCorrect;
             }
     
             if (currentMenuIndex === index) {
@@ -78,7 +91,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                 } else if (select) {
                     selectSpan.innerHTML += text[currentMenuIndex];
                 } else {
-                    textElement.innerHTML += text[currentMenuIndex];
+                    if (text[currentMenuIndex] == "_" && !ud) {
+                        const udSpan = document.createElement('span');
+                        udSpan.className = 'ud';
+                        textElement.appendChild(udSpan);
+                        ud = true;
+                    } else if (text[currentMenuIndex] == "_" && ud) {
+                        ud = false;
+                    } else {
+                        if (ud) {
+                            const lastUdSpan = textElement.querySelector('span.ud:last-child');
+                            if (lastUdSpan) {
+                                lastUdSpan.innerHTML += text[currentMenuIndex];
+                            }
+                        } else {
+                            textElement.innerHTML += text[currentMenuIndex];
+                        }
+                    }
                 }
                 if (text[currentMenuIndex] == "\n") {
                     select = false

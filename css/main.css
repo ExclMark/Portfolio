@@ -1,7 +1,131 @@
+:root {
+    --text-color-bar: rgb(182, 184, 184);
+    --text-color: rgb(255, 255, 255);
+    --font-family: 'Courier New', Courier, monospace;
+    --header-font-family: 'Roboto', sans-serif;
+    --darken-color: rgba(0, 0, 0, 0.5);
+    --terminal-bg-color: #3232325f;
+    --terminal-shadow-color: #1c1e226d;
+    --terminal-bar-color: rgb(42, 43, 44);
+    --close-color: #ff5c57;
+    --minimize-color: #f5be5b;
+    --maximize-color: #59cd90;
+
+    --panel-color: #000000;
+    --button-hover-color: #5c5c5c;
+
+    --ok-color: green;
+    --fail-color: rgb(240, 74, 74);
+    --timestamp-color: #888888;
+    --command-color: #39c2e4;
+    --folder-color: #4a8cf8;
+    --file-color: #39c2e4;
+    --pwd-color: #4a8cf8;
+    --prefix-color: #f25151;
+    --select-color: #abb2bf;
+    --select-text-color: #1c1e22;
+    --logo-color: #59cd90;
+
+    --scrollbar-bg-color: var(--terminal-bar-color);
+    --scrollbar-thumb-color: #696969;
+}
+
+header {
+    display: none;
+    justify-content: left;
+    align-items: center;
+    height: 1.5vh;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    font-family: var(--header-font-family);
+    font-size: 1.2rem;;
+    position: fixed;
+    padding: 0.5vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+@media (min-width: 500px) {
+    header {
+        display: flex;
+    }
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1rem;
+    height: 150%;
+    width: 8rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+}
+
+.home-img {
+    height: 90%;
+}
+
+.home:hover {
+    background-color: var(--button-hover-color);
+    
+}
+
+.name {
+    margin-left: 1rem;
+    color: var(--text-color);
+    font-weight: bold;;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    height: 150%;
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.active {
+    background-color: var(--button-hover-color);
+}
+
+.list:hover {
+    background-color: var(--button-hover-color);
+}
+
+.info {
+    display: none;
+    font-size: 1rem;
+}
+
+@media (min-width: 700px) {
+    .info {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+}
+
 body {
-    background-color: #282c34;
-    color: #abb2bf;
-    font-family: 'Courier New', Courier, monospace;
+    background-image: url('/src/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-color-bar);
+    font-family: var(--font-family);
     margin: 0;
     height: 100vh;
     display: flex;
@@ -11,6 +135,35 @@ body {
     touch-action: none;
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--darken-color);
+    z-index: 0;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 6px;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-bg-color);
+}
+
 @media (max-width: 768px) {
     .terminal {
         margin-bottom: 10vh;
@@ -18,17 +171,21 @@ body {
 }
 
 .terminal {
-    background-color: #1c1e22;
+    background-color: var(--terminal-bg-color);
+    border: 1px solid var(--terminal-bar-color);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--terminal-shadow-color);
     padding: 20px;;
     width: 80%;
     max-width: 1200px;
     min-width: 290px;
     height: 80%;
     min-height: 300px;
+    margin-top: 1rem;
     overflow: hidden;
     position: relative;
+    backdrop-filter: blur(10px);
+    z-index: 1;
 }
 
 .error {
@@ -38,7 +195,7 @@ body {
 }
 
 .bar {
-    background-color: #353a42;
+    background-color: var(--terminal-bar-color);
     border-radius: 8px 8px 0 0;
     height: 20px;
     width: 100%;
@@ -60,7 +217,7 @@ body {
 }
 
 .close {
-    background-color: #ff5c57;
+    background-color: var(--close-color);
     border-radius: 50%;
     height: 12px;
     width: 12px;
@@ -68,7 +225,7 @@ body {
 }
 
 .minimize {
-    background-color: #f5be5b;
+    background-color: var(--minimize-color);
     border-radius: 50%;
     height: 12px;
     width: 12px;
@@ -76,7 +233,7 @@ body {
 }
 
 .maximize {
-    background-color: #59cd90;
+    background-color: var(--maximize-color);
     border-radius: 50%;
     height: 12px;
     width: 12px;
@@ -90,7 +247,7 @@ body {
 }
 
 #animated-text {
-    color: #d3d3d3;
+    color: var(--text-color);
     font-size: 1.2rem;
     line-height: 1.5;
     margin: 0;
@@ -113,30 +270,30 @@ pre {
 }
 
 .ok {
-    color: green;
+    color: var(--ok-color);
     font-weight: bold;
 }
 
 .fail {
-    color: rgb(240, 74, 74);
+    color: var(--fail-color);
     font-weight: bold;
 }
 
 .timestamp {
-    color: #888888;
+    color: var(--timestamp-color);
 }
 
 .command {
-    color: #389db7;
+    color: var(--command-color);
 }
 
 .folder {
-    color: #5684ce;
+    color: var(--folder-color);
     font-weight: bold;
 }
 
 .file {
-    color: #44bddb;
+    color: var(--file-color);
     font-weight: bold;
 }
 
@@ -144,22 +301,26 @@ pre {
     font-weight: bold;
 }
 
+.ud {
+    text-decoration: underline;
+}
+
 .pwd {
-    color: #5684ce;
+    color: var(--pwd-color);
 }
 
 .prefix {
-    color: #d65757;
+    color: var(--prefix-color);
 }
 
 .select {
-    background-color: #abb2bf;
-    color: #1c1e22;
+    background-color: var(--select-color);
+    color: var(--select-text-color);
     font-weight: bold;
 }
 
 .logo {
-    color: #59cd90;
+    color: var(--logo-color);
     font-size: max(0.7rem, 3vmin);
     line-height: 1.2;
     display: block;
