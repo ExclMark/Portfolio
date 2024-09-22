@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 menu(false);
                 break;
             case 'Enter':
-                let localhost = true;
+                let localhost = false;
                 switch (parameterSelected) {
                     case 0:
                         window.location.href = localhost ? 'about.html' : '/about';
