@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         window.open('https://discordapp.com/users/665234248482947083', '_blank');
                         break;
                     case 2:
-                        window.open('https://t.me/excl_dev', '_blank');
+                        window.open('https://t.me/excl_mark', '_blank');
                         break;
                     case 3:
                         window.open('mailto:info@3xcl.dev', '_blank');
