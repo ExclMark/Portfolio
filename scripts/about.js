@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let text = mobile ? localization.page_hint_mob + "\n\n" : localization.page_hint + "\n\n";
         text += localization.about_me + "\n\n";
         text += localization.passion + "\n\n";
+        text += localization.awards + "\n" + localization.award_list + "\n\n";
         text += localization.certs + "\n" + localization.cert_list + "\n\n";
         text += localization.languages + "\n" + localization.lang_list + "\n\n";
         text += localization.ending;
