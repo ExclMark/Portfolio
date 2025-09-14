@@ -45,15 +45,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     terminal.innerHTML = '<span class="fail">./error</span>\n\n';
 
     function printText(text, element, delay = 25) {
-        return new Promise((resolve, reject) => {
-            // Normalize inputs so we never operate on undefined
-            if (typeof text === 'undefined' || text === null) text = '';
-            else text = String(text);
-            if (!element) element = terminal || document.body;
-
+        return new Promise((resolve) => {
             let i = 0;
             let currentSpan = null;
-
             // helper to open span of given class
             const openSpan = (cls) => {
                 currentSpan = document.createElement('span');
@@ -64,45 +58,41 @@ document.addEventListener("DOMContentLoaded", async function() {
             const closeSpan = () => {
                 currentSpan = null;
             };
-
+    
             function printChar() {
-                try {
-                    if (i < text.length) {
-                        const ch = text[i];
-
-                        if (ch === '|' ) { // toggle folder
-                            if (!currentSpan || currentSpan.className !== 'folder') {
-                                openSpan('folder');
-                            } else {
-                                closeSpan();
-                            }
-                        } else if (ch === '~') { // toggle file
-                            if (!currentSpan || currentSpan.className !== 'file') {
-                                openSpan('file');
-                            } else {
-                                closeSpan();
-                            }
-                        } else if (ch === '_') { // toggle ud
-                            if (!currentSpan || currentSpan.className !== 'ud') {
-                                openSpan('ud');
-                            } else {
-                                closeSpan();
-                            }
+                if (i < text.length) {
+                    const ch = text[i];
+    
+                    if (ch === '|' ) { // toggle folder
+                        if (!currentSpan || currentSpan.className !== 'folder') {
+                            openSpan('folder');
                         } else {
-                            if (currentSpan) {
-                                currentSpan.innerHTML += ch;
-                            } else {
-                                element.innerHTML += ch;
-                            }
+                            closeSpan();
                         }
-
-                        i++;
-                        setTimeout(printChar, delay);
+                    } else if (ch === '~') { // toggle file
+                        if (!currentSpan || currentSpan.className !== 'file') {
+                            openSpan('file');
+                        } else {
+                            closeSpan();
+                        }
+                    } else if (ch === '_') { // toggle ud
+                        if (!currentSpan || currentSpan.className !== 'ud') {
+                            openSpan('ud');
+                        } else {
+                            closeSpan();
+                        }
                     } else {
-                        resolve();
+                        if (currentSpan) {
+                            currentSpan.innerHTML += ch;
+                        } else {
+                            element.innerHTML += ch;
+                        }
                     }
-                } catch (err) {
-                    reject(err);
+    
+                    i++;
+                    setTimeout(printChar, delay);
+                } else {
+                    resolve();
                 }
             }
             printChar();
