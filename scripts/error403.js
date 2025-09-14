@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     terminal.innerHTML = '<span class="fail">./error</span>\n\n';
 
-        // ...existing code...
     function printText(text, element, delay = 25) {
         return new Promise((resolve) => {
             let i = 0;
@@ -128,7 +127,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     
         await printText(text4, terminal);
     }
-    // ...existing code...
 
     printSequentially();
 
