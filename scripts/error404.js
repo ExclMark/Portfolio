@@ -44,11 +44,16 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     terminal.innerHTML = '<span class="fail">./error</span>\n\n';
 
-        // ...existing code...
     function printText(text, element, delay = 25) {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
+            // Normalize inputs so we never operate on undefined
+            if (typeof text === 'undefined' || text === null) text = '';
+            else text = String(text);
+            if (!element) element = terminal || document.body;
+
             let i = 0;
             let currentSpan = null;
+
             // helper to open span of given class
             const openSpan = (cls) => {
                 currentSpan = document.createElement('span');
@@ -59,41 +64,45 @@ document.addEventListener("DOMContentLoaded", async function() {
             const closeSpan = () => {
                 currentSpan = null;
             };
-    
+
             function printChar() {
-                if (i < text.length) {
-                    const ch = text[i];
-    
-                    if (ch === '|' ) { // toggle folder
-                        if (!currentSpan || currentSpan.className !== 'folder') {
-                            openSpan('folder');
+                try {
+                    if (i < text.length) {
+                        const ch = text[i];
+
+                        if (ch === '|' ) { // toggle folder
+                            if (!currentSpan || currentSpan.className !== 'folder') {
+                                openSpan('folder');
+                            } else {
+                                closeSpan();
+                            }
+                        } else if (ch === '~') { // toggle file
+                            if (!currentSpan || currentSpan.className !== 'file') {
+                                openSpan('file');
+                            } else {
+                                closeSpan();
+                            }
+                        } else if (ch === '_') { // toggle ud
+                            if (!currentSpan || currentSpan.className !== 'ud') {
+                                openSpan('ud');
+                            } else {
+                                closeSpan();
+                            }
                         } else {
-                            closeSpan();
+                            if (currentSpan) {
+                                currentSpan.innerHTML += ch;
+                            } else {
+                                element.innerHTML += ch;
+                            }
                         }
-                    } else if (ch === '~') { // toggle file
-                        if (!currentSpan || currentSpan.className !== 'file') {
-                            openSpan('file');
-                        } else {
-                            closeSpan();
-                        }
-                    } else if (ch === '_') { // toggle ud
-                        if (!currentSpan || currentSpan.className !== 'ud') {
-                            openSpan('ud');
-                        } else {
-                            closeSpan();
-                        }
+
+                        i++;
+                        setTimeout(printChar, delay);
                     } else {
-                        if (currentSpan) {
-                            currentSpan.innerHTML += ch;
-                        } else {
-                            element.innerHTML += ch;
-                        }
+                        resolve();
                     }
-    
-                    i++;
-                    setTimeout(printChar, delay);
-                } else {
-                    resolve();
+                } catch (err) {
+                    reject(err);
                 }
             }
             printChar();
@@ -128,7 +137,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     
         await printText(text4, terminal);
     }
-    // ...existing code...
 
     printSequentially();
 
