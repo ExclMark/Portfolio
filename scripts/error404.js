@@ -40,16 +40,56 @@ document.addEventListener("DOMContentLoaded", async function() {
     let text1 = localization.error404 + "\n";
     let text2 = localization.code404 + "\n"
     let text3 = localization.message404 + "\n\n";
-    let text4 = mobile ? localization.back_mob404 : localization.back404;
+    let text4 = mobile ? localization.back_mob_error : localization.back_mob_error;
 
     terminal.innerHTML = '<span class="fail">./error</span>\n\n';
 
+        // ...existing code...
     function printText(text, element, delay = 25) {
         return new Promise((resolve) => {
             let i = 0;
+            let currentSpan = null;
+            // helper to open span of given class
+            const openSpan = (cls) => {
+                currentSpan = document.createElement('span');
+                currentSpan.className = cls;
+                element.appendChild(currentSpan);
+            };
+            // helper to close current span
+            const closeSpan = () => {
+                currentSpan = null;
+            };
+    
             function printChar() {
                 if (i < text.length) {
-                    element.innerHTML += text[i];
+                    const ch = text[i];
+    
+                    if (ch === '|' ) { // toggle folder
+                        if (!currentSpan || currentSpan.className !== 'folder') {
+                            openSpan('folder');
+                        } else {
+                            closeSpan();
+                        }
+                    } else if (ch === '~') { // toggle file
+                        if (!currentSpan || currentSpan.className !== 'file') {
+                            openSpan('file');
+                        } else {
+                            closeSpan();
+                        }
+                    } else if (ch === '_') { // toggle ud
+                        if (!currentSpan || currentSpan.className !== 'ud') {
+                            openSpan('ud');
+                        } else {
+                            closeSpan();
+                        }
+                    } else {
+                        if (currentSpan) {
+                            currentSpan.innerHTML += ch;
+                        } else {
+                            element.innerHTML += ch;
+                        }
+                    }
+    
                     i++;
                     setTimeout(printChar, delay);
                 } else {
@@ -59,35 +99,36 @@ document.addEventListener("DOMContentLoaded", async function() {
             printChar();
         });
     }
-
+    
     async function printSequentially() {
-        let slice = 0
+        let slice = 0;
         prefix = document.createElement('span');
         prefix.className = 'prefix';
         terminal.appendChild(prefix);
-
+    
         slice = localization.lang == 'en' ? 6 : 8;
         await printText(text1.slice(0, slice), prefix);
         await printText(text1.slice(slice), terminal);
-
+    
         prefix = document.createElement('span');
         prefix.className = 'prefix';
         terminal.appendChild(prefix);
-
+    
         slice = localization.lang == 'en' ? 5 : 4;
         await printText(text2.slice(0,slice), prefix);
         await printText(text2.slice(slice), terminal);
-
+    
         prefix = document.createElement('span');
         prefix.className = 'prefix';
         terminal.appendChild(prefix);
-
+    
         slice = localization.lang == 'en' ? 8 : 13;
         await printText(text3.slice(0, slice), prefix);
         await printText(text3.slice(slice), terminal);
-
+    
         await printText(text4, terminal);
     }
+    // ...existing code...
 
     printSequentially();
 
