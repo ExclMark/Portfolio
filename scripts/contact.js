@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         text += parameterSelected == 0 ? "> GitHub <\n" : "GitHub\n";
         text += parameterSelected == 1 ? "> Discord <\n\n" : "Discord\n";
         text += parameterSelected == 2 ? "> Telegram <\n\n" : "Telegram\n";
-        text += parameterSelected == 3 ? "> info@3xcl.dev <\n\n" : "info@3xcl.dev\n\n";
+        text += parameterSelected == 3 ? "> info@excl.sh <\n\n" : "info@excl.sh\n\n";
         text += parameterSelected == 4 ? "> " + localization.back + " <" : localization.back;
 
         if (skip) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             text += parameterSelected == 0 ? "<span class='select'>> GitHub <</span>\n" : "GitHub\n";
             text += parameterSelected == 1 ? "<span class='select'>> Discord <</span>\n" : "Discord\n";
             text += parameterSelected == 2 ? "<span class='select'>> Telegram <</span>\n" : "Telegram\n";
-            text += parameterSelected == 3 ? "<span class='select'>> info@3xcl.dev <</span>\n\n" : "info@3xcl.dev\n\n";
+            text += parameterSelected == 3 ? "<span class='select'>> info@excl.sh <</span>\n\n" : "info@excl.sh\n\n";
             text += parameterSelected == 4 ? "<span class='select'>> " + localization.back + " <" : localization.back;
             textElement.innerHTML = text;
         } else {
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         window.open('https://t.me/excl_mark', '_blank');
                         break;
                     case 3:
-                        window.open('mailto:info@3xcl.dev', '_blank');
+                        window.open('mailto:info@excl.sh', '_blank');
                         break;
                     case 4:
                         document.removeEventListener('keydown', handleKeydown);

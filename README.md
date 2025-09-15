@@ -1,11 +1,11 @@
 <h2 align="center">
   💼 Interactive Portfolio Website 🌐<br/>
-  <a href="https://3xcl.dev" target="_blank">3xcl.dev</a>
+  <a href="https://excl.sh" target="_blank">excl.sh</a>
 </h2>
 <img width="100%" alt="Web Preview" src="https://github.com/user-attachments/assets/502b92a2-4a75-4abb-868c-d26b086101e3">
 
 ```
-$ curl 3xcl.dev
+$ curl excl.sh
 ```
 <img width="643" height="323" alt="image" src="https://github.com/user-attachments/assets/e21596e9-9ba5-43ca-a51e-4a740d9e891c" />
 
