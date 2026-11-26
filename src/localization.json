@@ -19,14 +19,14 @@
         "back_mob_error": "*_tap_ to go back*",
         "page_hint": "*use _left/right arrows_ to swith pages, _enter_ to exit*",
         "page_hint_mob": "*_swipe left/right_ to swith pages, _tap_ to exit*",
-        "about_me": "Hello, world!\n|ExclMark| here, highly motivited Software Engineering student from Ukraine, who loves clean and effecient code.",
-        "passion": "Beyound coding, I'm interested in learning the secrets of cybersecurity and networking. Starting from the creation and design of networks to their protection.",
+        "about_me": "yo,\n|ExclMark| here, AI/ML student with hands-on experience across software development, cloud, Linux, and networking. Won the OpenAI track at Hack Ireland 2025. WorldSkills Ireland 2026 Finalist (Cloud Computing).",
+        "passion": "Beyound coding I have a passion in cybersecurity, IoT, photo- and videography.",
         "awards": "|Awards and Achievements:|",
-        "award_list": "|-| ~Transforming Health Hackathon (2024)~\nDeveloped an online e-library portal for Tallaght University Hospital using Django framework.\n|-| ~Naughty or Nice Christmas CTF (2024)~\nAttended my first CTF organised by CS++, game dev society, ZeroDays. Explored various challenges in cryptography, web security and reverse engineering.\n|-| ~HackIreland Hackathon (2025)~\nWon the OpenAI track. Developed a web application Centrion, which makes any camera intelligent.",
+        "award_list": "|-| ~HackIreland 2025~\nWon the OpenAI track.\n|-| ~WorldSkills Ireland 2026~\nCloud Computing Finalist.\n|-| ~NASA Space Apps HackAthole (2026)~\nDeveloped a web app that normalizes different satellite sensors to show wild fires across Europe.\n|-| ~AWS Jam (2026)~\nTook 4th place in my first jam.\n|-| ~Transforming Health Hackathon (2025)~\n|-| ~Naughty or Nice Christmas CTF (2024)~",
         "certs": "|IT Certificates:|",
-        "cert_list": "|-| ~PCAP-31-03~\n|-| ~CompTIA A+~\n|-| ~CompTIA Network+~\n|-| ~CompTIA CIOS~",
+        "cert_list": "|-| ~PCAP-31-03~\n|-| ~CompTIA A+ / Network+ / CIOS~\n|-| ~AWS Cloud Foundation / Generative AI Foundation~\n|-| ~Cisco Intro to IoT / Netw Ess. / Cybersec. Ess.~\n|-| ~RedHat System Administration 1~\n|-| ~Anthropic Claude Code 101 / Claude Code in Action / Intro to Agents Skills/Subagents~",
         "languages": "|Tech stack:|",
-        "lang_list": "|-| ~Python~\n|-| ~JavaScript~\n|-| ~HTML/CSS~\n|-| ~C++~\n|-| ~Java~\n|-| ~Swift~",
+        "lang_list": "|-| ~Python~\n|-| ~JavaScript~\n|-| ~HTML/CSS~\n|-| ~Bash~\n|-| ~Java~",
         "ending": "Feel free to reach out or check out my projects below.\n\nCheers, |ExclMark|.",
         "project": {
             "name": "|Project Name:|",
@@ -49,7 +49,7 @@
             "economybot": {
                 "alias": "Economy Bot",
                 "name": "Discord Economy Bot.",
-                "desc": "A Discord bot that simulates an economy system, allowing users to earn, spend, and gamble virtual currency. The project is not open-source. More than 100 servers have added the bot. Verified by the Discord.",
+                "desc": "A Discord bot that simulates an economy system, allowing users to earn, spend, and gamble virtual currency. The project is not open-source. More than 2000 servers have added the bot. Verified by the Discord.",
                 "tech": "Python, Interactions.py",
                 "link": "~https://top.gg/bot/852535785714483251~"
             },
@@ -67,12 +67,12 @@
                 "tech": "Swift, XCode.",
                 "link": "~https://github.com/ExclMark/SwiftTicTacToe~"
             },
-            "subnetcalc": {
-                "alias": "Network Calculator",
-                "name": "IPv4 Network Calculator",
-                "desc": "CLI based subnet/supernet calculator. Allows you to subnet/supernet any given network, and provides different useful info about IPv4 address.",
-                "tech": "Python, ipaddress.",
-                "link": "~https://github.com/ExclMark/SubnetCalc~"
+            "mcliveshow": {
+                "alias": "Minecraft Live Show Event",
+                "name": "Minecraft Live Show Event Plugin + Server",
+                "desc": "Built three production plugins for a Twitch streamer: a live chat/donation integration and three multi-streamer live shows featuring popular content creators.",
+                "tech": "Java, Paper API.",
+                "link": "Unavailable"
             }
         }
     },
@@ -96,15 +96,15 @@
         "back_mob_error": "*_натисніть_ щоб повернутись*",
         "page_hint": "*використовуйте _стрілки вліво/вправо_ для переключення сторінок, _enter_ для виходу*",
         "page_hint_mob": "*_свайп вліво/вправо_ для переключення сторінок, _дотик_ для виходу*",
-        "about_me": "Привіт, світ!\n|ExclMark| тут, високо вмотивований студент Програмного Забезпечення з України, який любить чистий та ефективний код.",
-        "passion": "Поза програмуванням, я цікавлюсь вивченням секретів кібербезпеки та мереж. Починаючи від створення та дизайну мереж, до їх захисту.",
+        "about_me": "йо,\n|ExclMark| тут. Студент по ШІ та машинному навчанню. Маю практичний досвід у сферах розробки ПЗ, хмарних технологій, Linux та нетворкінгу. Переможець у номінації OpenAI на Hack Ireland 2025. Фіналіст WorldSkills Ireland 2026 (хмарні обчислення)",
+        "passion": "Окрім програмування, я захоплююся кібербезпекою, Інтернетом речей, фото- та відеозйомкою.",
         "awards": "|Нагороди та Досягнення:|",
-        "award_list": "|-| ~Transforming Health Hackathon (2024)~\nРозробив онлайн е-бібліотеку для Tallaght University Hospital використовуючи Django фреймворк.\n|-| ~Naughty or Nice Christmas CTF (2024)~\nВзяв участь у своєму першому CTF заході, організованому CS++, гейм дев соціумом, ZeroDays. Дослідив різні челенджі в криптографії, веб безпеці та реверс інженерії.\n|-| ~HackIreland Hackathon (2025)~\nВиграв трек OpenAI. Розробив веб-додаток Centrion, який робить будь-яку камеру інтелектуальною.",
+        "award_list": "|-| ~HackIreland 2025~\nПеремогіг у номінації OpenAI.\n|-| ~WorldSkills Ireland 2026~\nФіналіст у категорії «Хмарні обчислення».\n|-| ~NASA Space Apps HackAthole (2026)~\nРозробив веб-додаток, що нормалізує дані різних супутникових датчиків для відображення лісових пожеж по всій Європі.\n|-| ~AWS Jam (2026)~\nПосів 4-те місце у своєму першому джемі.\n|-| ~Transforming Health Hackathon (2025)~\n|-| ~Naughty or Nice Christmas CTF (2024)~",
         "certs": "|IT сертифікати:|",
-        "cert_list": "|-| ~PCAP-31-03~\n|-| ~CompTIA A+~\n|-| ~CompTIA Network+~\n|-| ~CompTIA CIOS~",
+        "cert_list": "|-| ~PCAP-31-03~\n|-| ~CompTIA A+ / Network+ / CIOS~\n|-| ~AWS Cloud Foundation / Generative AI Foundation~\n|-| ~Cisco Intro to IoT / Netw Ess. / Cybersec. Ess.~\n|-| ~RedHat System Administration 1~\n|-| ~Anthropic Claude Code 101 / Claude Code in Action / Intro to Agents Skills/Subagents~",
         "languages": "|Тех стак:|",
-        "lang_list": "|-| ~Python~\n|-| ~JavaScript~\n|-| ~HTML/CSS~\n|-| ~C++~\n|-| ~Java~\n|-| ~Swift~",
-        "ending": "Не соромтеся зв'язатися або переглянути мої проекти нижче.\n\nУдачі, |ExclMark|.",
+        "lang_list": "|-| ~Python~\n|-| ~JavaScript~\n|-| ~HTML/CSS~\n|-| ~Bash~\n|-| ~Java~",
+        "ending": "Не соромтеся зв'язатися або переглянути мої проекти нижче.\n\nPeace, |ExclMark|.",
         "project": {
             "name": "|Назва Проєкту:|",
             "desc": "|Опис Проєкту:|",
@@ -126,7 +126,7 @@
             "economybot": {
                 "alias": "Економічний бот",
                 "name": "Економічний Discord Бот.",
-                "desc": "Бот для Discord, який симулює систему економіки, дозволяючи користувачам заробляти, витрачати та грати віртуальною валютою. Проєкт не є відкритим. Більше 100 серверів додали бота. Підтверджено Discord.",
+                "desc": "Бот для Discord, який симулює систему економіки, дозволяючи користувачам заробляти, витрачати та грати віртуальною валютою. Проєкт не є відкритим. Більше 2000 серверів додали бота. Підтверджено Discord.",
                 "tech": "Python, Interactions.py",
                 "link": "~https://top.gg/bot/852535785714483251~"
             },
@@ -144,12 +144,12 @@
                 "tech": "Swift, XCode.",
                 "link": "~https://github.com/ExclMark/SwiftTicTacToe~"
             },
-            "subnetcalc": {
-                "alias": "Калькулятор мереж",
-                "name": "IPv4 Калькулятор Мереж",
-                "desc": "CLI базовий калькулятор підмереж/супермереж. Дозволяє вам підмережувати/супермережувати будь-яку задану мережу, та надає різну корисну інформацію про IPv4 адресу.",
-                "tech": "Python, ipaddress.",
-                "link": "~https://github.com/ExclMark/SubnetCalc~"
+            "mcliveshow": {
+                "alias": "Minecraft плагіни",
+                "name": "Плагін та сервер Minecraft",
+                "desc": "Створив три плагіни для стриму на Twitch: інтеграція донатів та чату, та 3 челендж івенти, де брали участі різні контент кріейтори та стримери.",
+                "tech": "Java, Paper API.",
+                "link": "Недоступно"
             }
         }
     }

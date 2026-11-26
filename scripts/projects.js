@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         text += parameterSelected == 1 ? "> " + localization.project.economybot.alias + " <\n" : localization.project.economybot.alias + "\n";
         text += parameterSelected == 2 ? "> " + localization.project.rpoxubot.alias + " <\n" : localization.project.rpoxubot.alias + "\n";
         text += parameterSelected == 3 ? "> " + localization.project.tictactoe.alias + " <\n" : localization.project.tictactoe.alias + "\n";
-        text += parameterSelected == 4 ? "> " + localization.project.subnetcalc.alias + " <\n\n" : localization.project.subnetcalc.alias + "\n\n";
+        text += parameterSelected == 4 ? "> " + localization.project.mcliveshow.alias + " <\n\n" : localization.project.mcliveshow.alias + "\n\n";
         text += parameterSelected == 5 ? "> " + localization.back + " <" : localization.back;
         textElement.scrollTop = parameterSelected * 20;
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             text += parameterSelected == 1 ? "<span class='select'>> " + localization.project.economybot.alias + " <</span>\n" : localization.project.economybot.alias + "\n";
             text += parameterSelected == 2 ? "<span class='select'>> " + localization.project.rpoxubot.alias + " <</span>\n" : localization.project.rpoxubot.alias + "\n";
             text += parameterSelected == 3 ? "<span class='select'>> " + localization.project.tictactoe.alias + " <</span>\n" : localization.project.tictactoe.alias + "\n";
-            text += parameterSelected == 4 ? "<span class='select'>> " + localization.project.subnetcalc.alias + " <</span>\n\n" : localization.project.subnetcalc.alias + "\n\n";
+            text += parameterSelected == 4 ? "<span class='select'>> " + localization.project.mcliveshow.alias + " <</span>\n\n" : localization.project.mcliveshow.alias + "\n\n";
             text += parameterSelected == 5 ? "<span class='select'>> " + localization.back + " <" : localization.back;
             textElement.innerHTML = text;
         } else {
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         window.location.href = localhost ? '/projects/tictactoe.html' : '/projects/tictactoe';
                         break;
                     case 4:
-                        window.location.href = localhost ? '/projects/subnetcalc.html' : '/projects/subnetcalc';
+                        window.location.href = localhost ? '/projects/mcliveshow.html' : '/projects/mcliveshow';
                         break;
                     case 5:
                         document.removeEventListener('keydown', handleKeydown);

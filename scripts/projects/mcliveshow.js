@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function project(span) {
         if (loaded) {
-            textElement.innerHTML = `<span class='pwd'>./projects/subnetcalc - [${page}/${totalPages}]</span>\n\n`;
+            textElement.innerHTML = `<span class='pwd'>./projects/mcliveshow - [${page}/${totalPages}]</span>\n\n`;
             let text = pages[page - 1];
             bold = false;
             link = false;
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     formattedText += "</span>";
                     bold = false;
                 } else if (text[i] == "~" && !link) {
-                    let url = localization.project.subnetcalc.link;
+                    let url = localization.project.mcliveshow.link;
                     url = url.replace(/~/g, '');
                     formattedText += `<a class='link' href='${url}'>`;
                     link = true;
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (text[currentMenuIndex] === "~" && !link) {
                     span = document.createElement('a');
                     span.className = 'link';
-                    span.href = localization.project.subnetcalc.link.replace(/~/g, '');
+                    span.href = localization.project.mcliveshow.link.replace(/~/g, '');
                     textElement.appendChild(span);
                     link = true;
                 } else if (text[currentMenuIndex] === "~" && link) {
@@ -192,17 +192,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     function updateHeader() {
         textElement.textContent = '';
         let text = mobile ? localization.project.page_hint_mob + "\n\n" : localization.project.page_hint + "\n\n";
-        text += localization.project.name + " " + localization.project.subnetcalc.name + "\n";
-        text += localization.project.desc + " " + localization.project.subnetcalc.desc + "\n";
-        text += localization.project.tech + " " + localization.project.subnetcalc.tech + "\n";
-        text += localization.project.link + " " + localization.project.subnetcalc.link + "\n";
-        text += mobile ? localization.project.open_link_mob : localization.project.open_link;
+        text += localization.project.name + " " + localization.project.mcliveshow.name + "\n";
+        text += localization.project.desc + " " + localization.project.mcliveshow.desc + "\n";
+        text += localization.project.tech + " " + localization.project.mcliveshow.tech + "\n";
+        text += localization.project.link + " " + localization.project.mcliveshow.link + "\n";
+        // text += mobile ? localization.project.open_link_mob : localization.project.open_link;
         text += mobile ? "\n\n" + localization.project.exit_mob : "\n\n" + localization.project.exit;
         pages = paginateText(String(text));
         const span = document.createElement('span');
         span.className = 'pwd';
         textElement.appendChild(span);
-        span.textContent = `./projects/subnetcalc - [${page}/${totalPages}]\n\n`;
+        span.textContent = `./projects/mcliveshow - [${page}/${totalPages}]\n\n`;
         currentMenuIndex = 0;
         loaded = false;
         project();
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.location.href = '/projects';
         }
         if (event.key === "Enter") {
-            let url = localization.project.subnetcalc.link;
+            let url = localization.project.mcliveshow.link;
             url = url.replace(/~/g, '');
             window.open(url, '_blank');
         }
