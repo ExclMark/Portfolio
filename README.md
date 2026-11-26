@@ -7,7 +7,7 @@
 ```
 $ curl excl.sh
 ```
-<img width="643" height="323" alt="image" src="https://github.com/user-attachments/assets/e21596e9-9ba5-43ca-a51e-4a740d9e891c" />
+<img width="569" height="267" alt="image" src="https://github.com/user-attachments/assets/82f64654-a58f-4eae-aec7-883550725beb" />
 
 
 ## Description:
